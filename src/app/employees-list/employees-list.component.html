@@ -1,0 +1,31 @@
+<div  style="padding-top: 2%">
+    <label><b>Filter by :</b></label>
+    <input type="text" id="filter" [(ngModel)]="searchText" name="searchText" placeholder="Search By Name" style="border-radius: 5px;border: 2px solid rgb(143, 177, 199);padding-left:1%;margin-left: 1% ">
+</div>
+
+<p style="color:#010101 ;padding-top: 1%">Number of Employees :<span style="margin-left: 1%"><b style="color: rgba(218,112,214, 0.979)" id="count">{{(employees | searchByName : searchText).length}}</b></span> </p>
+
+<table  class="table"  >
+    <thead class="thead-dark">
+    <tr>
+        <th>Emp ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees | searchByName : searchText ;index as i; last as last">
+        <th><a [routerLink]="['/details',employee.id]">{{employee.id}}</a></th>
+        <th [attr.id]="'name'+(i+1)">{{employee.name | uppercase }}</th>
+        <th [attr.id]="'loc'+(i+1)" >{{employee.location}}</th>
+        <th [attr.id]="'email'+(i+1)">{{employee.email}}</th>
+        <th [attr.id]="'mob'+(i+1)" >{{employee.mobile}}</th>
+        <th ><a [routerLink]="['/editEmployee',employee.id]"  class="btn btn-secondary" >Edit{{employee.id}}</a></th>
+        <th ><a [routerLink]="['/deleteEmployee',employee.id]"  class="btn btn-danger" >Delete{{employee.id}}</a></th>
+    </tr>
+    </tbody>
+</table>

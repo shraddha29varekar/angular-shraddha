@@ -1,0 +1,15 @@
+
+<div class="card">
+    <div class="card-header"><b>Employee Details</b></div>
+<div class="card-body">    
+<div *ngIf="employee">   
+    <div class="card-text" id="id"><b>ID: </b>{{employee.id}} </div>
+    <div class="card-text" id="name"><b>Name: </b>{{employee.name}}</div>
+    <div class="card-text" id="location"><b>Location: </b>{{employee.location}}</div>
+    <div class="card-text" id="email"><b>Email: </b>{{employee.email}}</div>
+    <div class="card-text" id="mobile"><b>Mobile: </b>{{employee.mobile}}</div>
+    <hr>
+    <button id="back" (click)="goBack()" class="btn btn-secondary ">Back</button>
+</div>
+</div>
+</div>
